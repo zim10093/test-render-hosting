@@ -1,8 +1,8 @@
 # stage 1 - dependency download layer
-#FROM maven:3.6.3-openjdk-17 AS dependencies
-#WORKDIR /build
-#COPY pom.xml ./
-#RUN mvn dependency:go-offline
+FROM maven:3.6.3-openjdk-17 AS dependencies
+WORKDIR /build
+COPY pom.xml ./
+RUN mvn dependency:go-offline
 
 # stage 2 - application build layer
 FROM maven:3.6.3-openjdk-17 AS build
